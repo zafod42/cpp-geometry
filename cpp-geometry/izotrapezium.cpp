@@ -16,16 +16,21 @@ const rectangle_t& Izotrapezium::getFrameRect() {
     return rect;
 }
 
-void Izotrapezium::move(point_t) {
-
+void Izotrapezium::move(point_t p) {
+    point_t c;
+    c.x = std::max(lenBot, lenTop);
+    c.y = height / 2;
+    leftBot.x += p.x - c.x;
+    leftBot.y += p.y - c.y;
 }
 
-void Izotrapezium::move(double, double) {
-
+void Izotrapezium::move(double x, double y) {
+    leftBot.x += x;
+    leftBot.y += y;
 }
 
 void Izotrapezium::scale(double) {
-
+    //TODO: look to the python code, and make the same
 }
 
 const std::string& Izotrapezium::getName() {
