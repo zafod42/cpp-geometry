@@ -140,10 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="base-types.h" />
+    <ClInclude Include="izotrapezium.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="shape.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="izotrapezium.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="rectangle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

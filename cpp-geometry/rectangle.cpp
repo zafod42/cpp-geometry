@@ -13,27 +13,25 @@ Rectangle::Rectangle(const Rectangle& rect) {
 }
 
 const double& Rectangle::getArea() {
-    double length = sqrt((leftBot.x - rightTop.x) * (leftBot.x - rightTop.x));
-    double width = sqrt((leftBot.y - rightTop.y) * (leftBot.y - rightTop.y));
+    double length = abs(leftBot.x - rightTop.x);
+    double width = abs(leftBot.y - rightTop.y);
     return length * width;
 }
 
 const rectangle_t& Rectangle::getFrameRect() {
-    double length = sqrt((leftBot.x - rightTop.x) * (leftBot.x - rightTop.x));
-    double width = sqrt((leftBot.y - rightTop.y) * (leftBot.y - rightTop.y));
+    double length = abs(leftBot.x - rightTop.x);
+    double width = abs(leftBot.y - rightTop.y);
     rectangle_t rect;
-    point_t p;
-    p.x = length / 2;
-    p.y = width / 2;
     rect.width = width;
     rect.length = length;
-    rect.pos = p;
+    rect.pos.x = leftBot.x + length / 2;
+    rect.pos.y = leftBot.y + width / 2;
     return rect;
 }
 
 void Rectangle::move(point_t p) {
-    double length = sqrt((leftBot.x - rightTop.x) * (leftBot.x - rightTop.x));
-    double width = sqrt((leftBot.y - rightTop.y) * (leftBot.y - rightTop.y));
+    double length = abs(leftBot.x - rightTop.x);
+    double width = abs(leftBot.y - rightTop.y);
     double ax = 0, ay = 0;
     ax = p.x - length / 2;
     ay = p.y - width / 2;
