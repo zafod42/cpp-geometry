@@ -5,20 +5,22 @@ class Rectangle : public Shape {
 private:
     point_t leftBot;
     point_t rightTop;
+    std::string name;
 public:
-    Rectangle(point_t, point_t);
-    Rectangle(double, double, double, double);
+    Rectangle(point_t, point_t, std::string);
 
     Rectangle(const Rectangle&);
 
-    double getArea() override;
+    const double& getArea() override;
 
 
-    rectangle_t getFrameRect() override;
-    std::string getName() override;
+    const rectangle_t& getFrameRect() override;
+    const std::string& getName() override;
 
-    void move() override;
-    void scale() override;
+    void move(point_t) override;
+    void move(double, double) override;
+    void scale(double) override;
 
+    Shape* clone() override;
 
 };
