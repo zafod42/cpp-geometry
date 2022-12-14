@@ -1,7 +1,5 @@
 #include "izotrapezium.h"
 
-Izotrapezium(point_t p, double lb, double lt, double h) : botLen(lb), (lt), (h) {}
-Izotrapezium(const Izotrapezium& izot) {}
 
 const double& Izotrapezium::getArea() {
     return height * (lenBot + lenTop) / 2;

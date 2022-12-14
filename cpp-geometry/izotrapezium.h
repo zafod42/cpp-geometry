@@ -10,9 +10,6 @@ private:
     double height;
 public:
 
-    Izotrapezium (point_t, point_t);
-    Izotrapezium (const Izotrapezium&);
-
     const double& getArea() override;
     const rectangle_t getFrameRect() override;
 
