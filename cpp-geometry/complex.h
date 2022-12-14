@@ -1,18 +1,22 @@
 #pragma once
 #include "shape.h"
 
-class Izotrapezium : public Shape {
+class CompositeShape : public Shape {
 private:
-    const std::string name = "IZOTRAPEZIUM";
-    point_t leftBot;
-    double lenBot;
-    double lenTop;
-    double height;
+    const size_t maxNum;
+    size_t size;
+    const std::string name = "COMPLEX";
+    Shape** compositeShapeArr;
 public:
-    Izotrapezium(point_t leftBot, double lenBot, double lenTop, double height);
-    Izotrapezium(const Izotrapezium& izot);
+    CompositeShape(size_t maxNum, Shape* arr, size_t size);
+    CompositeShape(const CompositeShape& izot);
+
+    ~CompositeShape();
+
     const double& getArea() override;
     const rectangle_t& getFrameRect() override;
+
+    void add(Shape& shape);
 
     void move(point_t newPos) override;
     void move(double x, double y) override;

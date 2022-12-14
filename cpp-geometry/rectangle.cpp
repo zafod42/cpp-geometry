@@ -10,7 +10,7 @@ const double& Rectangle::getArea() {
     return length * width;
 }
 
-const rectangle_t Rectangle::getFrameRect() {
+const rectangle_t& Rectangle::getFrameRect() {
     double length = abs(leftBot.x - rightTop.x);
     double width = abs(leftBot.y - rightTop.y);
 

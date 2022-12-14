@@ -5,7 +5,7 @@
 class Shape {
 public:
     virtual const double& getArea() = 0;
-    virtual const rectangle_t getFrameRect() = 0;
+    virtual const rectangle_t& getFrameRect() = 0;
 
     virtual void move(point_t) = 0;
     virtual void move(double, double) = 0;

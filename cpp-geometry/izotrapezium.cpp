@@ -18,7 +18,7 @@ const double& Izotrapezium::getArea() {
     return height * (lenBot + lenTop) / 2;
 }
 
-const rectangle_t Izotrapezium::getFrameRect() {
+const rectangle_t& Izotrapezium::getFrameRect() {
     rectangle_t rect;
     point_t p;
 

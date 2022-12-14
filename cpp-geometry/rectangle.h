@@ -14,7 +14,7 @@ public:
     const double& getArea() override;
 
 
-    const rectangle_t getFrameRect() override;
+    const rectangle_t& getFrameRect() override;
     const std::string& getName() override;
 
     void move(point_t newPos) override;
