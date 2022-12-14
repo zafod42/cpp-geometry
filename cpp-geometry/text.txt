@@ -1,0 +1,4 @@
+Name: RECTANGLE
+Area: 2
+Left bottom: (0; 0)
+Right top: (1; 2)

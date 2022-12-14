@@ -3,18 +3,18 @@
 
 class Rectangle : public Shape {
 private:
+    const std::string name = "RECTANGLE";
     point_t leftBot;
     point_t rightTop;
-    std::string name;
 public:
-    Rectangle(point_t, point_t, std::string);
+    Rectangle(point_t, point_t);
 
     Rectangle(const Rectangle&);
 
     const double& getArea() override;
 
 
-    const rectangle_t& getFrameRect() override;
+    const rectangle_t getFrameRect() override;
     const std::string& getName() override;
 
     void move(point_t) override;

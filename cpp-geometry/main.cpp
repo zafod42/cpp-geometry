@@ -1,22 +1,29 @@
 #include <iostream>
 #include "rectangle.h"
+#include <fstream>
+
 
 int main() {
-    point_t lb, rt;
-    lb.x = 1;
-    lb.y = 1;
-    rt.x = 6;
-    rt.y = 5;
-    Rectangle rect(lb, rt, "RECTANGLE");
-    Shape* rectptr = nullptr;
-    rectptr = rect.clone();
-    double area = rectptr->getArea();
-    std::cout << area << '\n';
-    delete rectptr;
-    std::cout << rect.getName() << '\n';
-    rectangle_t frame = rect.getFrameRect();
-    std::cout << (frame.length * frame.width) << ' ' << rect.getArea() << '\n';
-    std::cout << "Center: " << '(' << frame.pos.x << "; " << frame.pos.y << ')' << '\n';
-    
+    std::string existingShapes[] = { "COMPOSITE", "RECTANGLE", "IZOTRAPEZIUM" };
+    std::string filename;
+    std::string input;
+    std::fstream file;
+    std::cout << "Enter name of file: ";
+    std::cin >> filename;
+    try {
+        file.open(filename, std::ios_base::out);
+        if (file.is_open() == false) {
+            throw std::runtime_error("File does not exist");
+        }
+    }
+    catch (std::runtime_error e) {
+        std::cerr << e.what() << '\n';
+        exit(-1);
+    }
+    Rectangle rect(point_t(0, 0), point_t(1, 2));
+    file << rect;
+    /*while (file >> input) {
+        std::cout << input << std::endl;
+    }*/
     return 0;
 }

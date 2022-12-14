@@ -1,6 +1,6 @@
 #include "rectangle.h"
 
-Rectangle::Rectangle(point_t leftBot, point_t rightTop, std::string name) {
+Rectangle::Rectangle(point_t leftBot, point_t rightTop) {
     this->leftBot = leftBot;
     this->rightTop = rightTop;
     this->name = name;
@@ -18,7 +18,7 @@ const double& Rectangle::getArea() {
     return length * width;
 }
 
-const rectangle_t& Rectangle::getFrameRect() {
+const rectangle_t Rectangle::getFrameRect() {
     double length = abs(leftBot.x - rightTop.x);
     double width = abs(leftBot.y - rightTop.y);
     rectangle_t rect;
