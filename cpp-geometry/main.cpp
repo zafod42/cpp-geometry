@@ -1,5 +1,6 @@
 #include <iostream>
 #include "rectangle.h"
+#include "izotrapezium.h"
 #include <fstream>
 
 
@@ -20,8 +21,19 @@ int main() {
         std::cerr << e.what() << '\n';
         exit(-1);
     }
-    Rectangle rect(point_t(0, 0), point_t(1, 2));
+    Rectangle rect(point_t(0, 0), point_t(4, 5));
+    Izotrapezium izot(point_t(0,0), 5, 3, 5);
     file << rect;
+    file << izot;
+    if (rect == izot) {
+        file << rect.getName() << " equal to " << izot.getName() << std::endl;
+    }
+    else if (rect < izot){
+        file << izot.getName() << " greater than " << rect.getName() << std::endl;
+    }
+    else {
+        file << rect.getName() << " greater than " << izot.getName() << std::endl;
+    }
     /*while (file >> input) {
         std::cout << input << std::endl;
     }*/

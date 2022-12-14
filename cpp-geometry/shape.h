@@ -15,6 +15,13 @@ public:
 
     virtual Shape* clone() = 0;
 
+    bool operator<(Shape&);
+    bool operator>(Shape&);
+    bool operator==(Shape&);
+    bool operator!=(Shape&);
+    bool operator>=(Shape&);
+    bool operator<=(Shape&);
+
 };
 
 std::ostream& operator<<(std::ostream& os, Shape& sh);

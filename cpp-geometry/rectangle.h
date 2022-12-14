@@ -7,9 +7,9 @@ private:
     point_t leftBot;
     point_t rightTop;
 public:
-    Rectangle(point_t, point_t);
+    Rectangle(point_t leftBot, point_t rightTop);
 
-    Rectangle(const Rectangle&);
+    Rectangle(const Rectangle& rect);
 
     const double& getArea() override;
 
@@ -17,9 +17,9 @@ public:
     const rectangle_t getFrameRect() override;
     const std::string& getName() override;
 
-    void move(point_t) override;
-    void move(double, double) override;
-    void scale(double) override;
+    void move(point_t newPos) override;
+    void move(double x, double y) override;
+    void scale(double k) override;
 
     Shape* clone() override;
 

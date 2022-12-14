@@ -1,0 +1,9 @@
+Name: RECTANGLE
+Area: 20
+Left bottom: (0; 0)
+Right top: (4; 5)
+Name: IZOTRAPEZIUM
+Area: 20
+Left bottom: (0; 0)
+Right top: (5; 5)
+RECTANGLE equal to IZOTRAPEZIUM

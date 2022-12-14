@@ -9,14 +9,14 @@ private:
     double lenTop;
     double height;
 public:
-    Izotrapezium(point_t, double, double, double);
-    Izotrapezium(const Izotrapezium&);
+    Izotrapezium(point_t leftBot, double lenBot, double lenTop, double height);
+    Izotrapezium(const Izotrapezium& izot);
     const double& getArea() override;
     const rectangle_t getFrameRect() override;
 
-    void move(point_t) override;
-    void move(double, double) override;
-    void scale(double) override;
+    void move(point_t newPos) override;
+    void move(double x, double y) override;
+    void scale(double k) override;
 
     const std::string& getName() override;
 
