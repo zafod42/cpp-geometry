@@ -12,5 +12,6 @@ struct rectangle_t {
     double width;
     double length;
     point_t pos;
-    rectangle_t(double w, double l, point_t p) : width(w), length(l), pos(p) {};
+    rectangle_t() : width(0), length(0), pos(point_t(0, 0)) {}
+    rectangle_t(double w, double l, point_t p) : width(w), length(l), pos(p) {}
 };
