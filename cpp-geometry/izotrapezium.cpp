@@ -1,5 +1,18 @@
 #include "izotrapezium.h"
 
+Izotrapezium::Izotrapezium(point_t p, double lb, double lt, double h) : 
+    leftBot(p), 
+    lenBot(lb), 
+    lenTop(lt), 
+    height(h) 
+{}
+
+Izotrapezium::Izotrapezium(const Izotrapezium& izt) : 
+    leftBot(izt.leftBot), 
+    lenBot(izt.lenBot), 
+    lenTop(izt.lenTop), 
+    height(izt.height) 
+{}
 
 const double& Izotrapezium::getArea() {
     return height * (lenBot + lenTop) / 2;
@@ -32,17 +45,12 @@ void Izotrapezium::move(double x, double y) {
 
 void Izotrapezium::scale(double k) {
     //TODO: look to the python code, and make the same
-    point_t c;
-    c.x = std::max(lenBot, lenTop);
-    c.y = height / 2;
-    double vx = 0, vy = 0;
-    vx = leftBot.x - c.x;
-    vy = leftBot.y - c.y;
-    double newx = 0, newy = 0;
-    newx = c.x + vx * k;
-    newy = c.y + vy * k;
-    leftBot.x = newx;
-    leftBot.y = newy;
+    point_t center(std::max(lenBot, lenTop), height / 2);
+    point_t newCenter(
+        center.x + k * (leftBot.x - center.x),
+        center.y + k * (leftBot.y - center.y)
+    );
+    leftBot = newCenter;
     height *= k;
     lenBot *= k;
     lenTop *= k;
@@ -53,6 +61,6 @@ const std::string& Izotrapezium::getName() {
     return name;
 }
 
-//Shape* Izotrapezium::clone() {
-//  
-//}
+Shape* Izotrapezium::clone() {
+    return (new Izotrapezium(*this));
+}
