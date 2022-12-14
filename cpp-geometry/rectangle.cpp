@@ -1,16 +1,8 @@
 #include "rectangle.h"
 
-Rectangle::Rectangle(point_t leftBot, point_t rightTop) {
-    this->leftBot = leftBot;
-    this->rightTop = rightTop;
-    this->name = name;
-}
+Rectangle::Rectangle(point_t lb, point_t rt) : leftBot(lb), rightTop(rt) {}
 
-Rectangle::Rectangle(const Rectangle& rect) {
-    leftBot = rect.leftBot;
-    rightTop = rect.rightTop;
-    name = rect.name;
-}
+Rectangle::Rectangle(const Rectangle& rect) : leftBot(rect.leftBot), rightTop(rect.rightTop) {}
 
 const double& Rectangle::getArea() {
     double length = abs(leftBot.x - rightTop.x);
@@ -21,12 +13,10 @@ const double& Rectangle::getArea() {
 const rectangle_t Rectangle::getFrameRect() {
     double length = abs(leftBot.x - rightTop.x);
     double width = abs(leftBot.y - rightTop.y);
-    rectangle_t rect;
-    rect.width = width;
-    rect.length = length;
-    rect.pos.x = leftBot.x + length / 2;
-    rect.pos.y = leftBot.y + width / 2;
-    return rect;
+
+    point_t center(leftBot.x + length / 2, leftBot.y + width / 2);
+
+    return rectangle_t(width, length, center);
 }
 
 void Rectangle::move(point_t p) {
