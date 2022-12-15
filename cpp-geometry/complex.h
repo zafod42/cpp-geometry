@@ -8,6 +8,8 @@ private:
     const std::string name = "COMPLEX";
     Shape** compositeShapeArr;
 public:
+
+    CompositeShape(size_t maxNum);
     CompositeShape(size_t maxNum, Shape* arr, size_t size);
     CompositeShape(const CompositeShape& izot);
 
@@ -16,7 +18,7 @@ public:
     const double& getArea() override;
     const rectangle_t& getFrameRect() override;
 
-    void add(Shape& shape);
+    void add(Shape *shape);
 
     void move(point_t newPos) override;
     void move(double x, double y) override;

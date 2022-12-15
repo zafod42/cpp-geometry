@@ -29,9 +29,10 @@ bool Shape::operator<=(Shape& shape) {
 
 
 std::ostream& operator<<(std::ostream& os, Shape& sh) {
-    point_t center = sh.getFrameRect().pos;
-    double width = sh.getFrameRect().width;
-    double length = sh.getFrameRect().length;
+    rectangle_t rect = sh.getFrameRect();
+    point_t center = rect.pos;
+    double width = rect.width;
+    double length = rect.length;
     return os
         << "Name: " << sh.getName() << '\n'
         << "Area: " << sh.getArea() << '\n'
