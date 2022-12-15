@@ -15,6 +15,8 @@ public:
 
     virtual Shape* clone() = 0;
 
+    virtual ~Shape() = 0 {}
+
     bool operator<(Shape&);
     bool operator>(Shape&);
     bool operator==(Shape&);
@@ -25,3 +27,5 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& os, Shape& sh);
+
+Shape** sortByArea(Shape** arr, size_t size);

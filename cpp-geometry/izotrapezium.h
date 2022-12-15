@@ -11,6 +11,8 @@ private:
 public:
     Izotrapezium(point_t leftBot, double lenBot, double lenTop, double height);
     Izotrapezium(const Izotrapezium& izot);
+
+
     const double& getArea() override;
     const rectangle_t& getFrameRect() override;
 

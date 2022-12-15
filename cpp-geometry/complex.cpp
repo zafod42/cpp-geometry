@@ -49,7 +49,7 @@ const rectangle_t& CompositeShape::getFrameRect() {
     }
     double width = (rightTop.y - leftBot.y);
     double length = (rightTop.x - leftBot.x);
-    point_t center(length / 2, width / 2);
+    point_t center(leftBot.x + length / 2, leftBot.y + width / 2);
     
     return rectangle_t(width, length, center);
 }

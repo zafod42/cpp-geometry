@@ -9,7 +9,7 @@ private:
 public:
     Rectangle(point_t leftBot, point_t rightTop);
 
-    Rectangle(const Rectangle& rect);
+    Rectangle(const Rectangle& rect) ;
 
     const double& getArea() override;
 

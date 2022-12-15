@@ -2,7 +2,7 @@
 
 bool Shape::operator<(Shape& shape) {
     double eps = 1e-11;
-    return getArea() + eps < shape.getArea();
+    return this->getArea() + eps < shape.getArea();
 }
 
 bool Shape::operator>(Shape& shape) {
@@ -25,9 +25,6 @@ bool Shape::operator<=(Shape& shape) {
     return !(shape < *this);
 }
 
-
-
-
 std::ostream& operator<<(std::ostream& os, Shape& sh) {
     rectangle_t rect = sh.getFrameRect();
     point_t center = rect.pos;
@@ -38,4 +35,18 @@ std::ostream& operator<<(std::ostream& os, Shape& sh) {
         << "Area: " << sh.getArea() << '\n'
         << "Left bottom: (" << center.x - length / 2 << "; " << center.y - width / 2 << ")\n"
         << "Right top: (" << center.x + length / 2 << "; " << center.y + width / 2 << ")\n";
+}
+
+Shape** sortByArea(Shape** arr, size_t size) {
+    Shape* tmp;
+    for (size_t i = 0; i < size; ++i) {
+        for (size_t j = i + 1; j < size; ++j) {
+            if (*arr[i] > *arr[j]) {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+    }
+    return arr;
 }

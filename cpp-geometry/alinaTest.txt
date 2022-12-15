@@ -1,9 +1,0 @@
-Name: RECTANGLE
-Area: 20
-Left bottom: (0; 0)
-Right top: (4; 5)
-Name: IZOTRAPEZIUM
-Area: 22.5
-Left bottom: (0; 0)
-Right top: (6; 5)
-IZOTRAPEZIUM greater than RECTANGLE

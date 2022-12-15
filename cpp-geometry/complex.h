@@ -13,7 +13,7 @@ public:
     CompositeShape(size_t maxNum, Shape* arr, size_t size);
     CompositeShape(const CompositeShape& izot);
 
-    ~CompositeShape();
+    ~CompositeShape() override;
 
     const double& getArea() override;
     const rectangle_t& getFrameRect() override;
