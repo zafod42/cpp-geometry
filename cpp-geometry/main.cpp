@@ -105,9 +105,6 @@ int main() {
             flag = false;
         }
     }
-    for (size_t i = 0; i < size; ++i) {
-        std::cout<<'\n' << *shArray[i];
-    }
     sortByArea(shArray, size);
     for (size_t i = 0; i < size; ++i) {
         std::cout << "\n#" << i << '\n' << *shArray[i];
@@ -116,5 +113,22 @@ int main() {
         delete shArray[i];
     }
     delete shArray;
+
+    Izotrapezium izot(point_t(5, 3), 10, 6, 3);
+    Rectangle rect(point_t(0, 0), point_t(5, 2));
+    std::cout << "\n\nTest demonstration:\n";
+    std::cout << izot << '\n';
+    izot.move(point_t(4, 4));
+    std::cout << izot << '\n';
+    izot.move(2, 2);
+    std::cout << izot << '\n';
+    Shape* sh = izot.clone();
+    std::cout << sh << ' ' << &izot << '\n';
+    std::cout << *sh << '\n';
+    sh->move(point_t(1, 1));
+    std::cout << *sh << '\n';
+    sh->scale(6);
+    std::cout << *sh << '\n';
+    delete sh;
     return 0;
 }
